@@ -12,17 +12,13 @@
 		<data>
 		5Sg8GolnAwTgjZN8SBzVBU1ALgg=
 		</data>
-		<key>Headers/HCNavigationController.h</key>
-		<data>
-		21vb4VVjsSLlrh269yU1LKQmoJs=
-		</data>
 		<key>Headers/MaxIssues.h</key>
 		<data>
-		QOP2qXV157GTIApYd4OaD8fo9Ss=
+		FCVQ8OVrekUUKX0JHuogphERPgA=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NDhdaTeq++rUbedBQU0v2yJX8v8=
+		LlZ5meeRAuQgLLTVaqKOMWrPw/A=
 		</data>
 		<key>MLIssuesImages.bundle/btn_arrow_nomal.png</key>
 		<data>
@@ -292,7 +288,7 @@
 		</dict>
 		<key>MLIssuesThemes.bundle/Default.plist</key>
 		<data>
-		VYhq1yRcOcYzxWZpJMIgcE5gJIM=
+		bMBUlJVHJL3mo8ghZbJASgQulGo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -323,26 +319,15 @@
 			OKd9EuDoKbaOLXhDgKjplmmSiXT3YtFYYxFGTBeYzmY=
 			</data>
 		</dict>
-		<key>Headers/HCNavigationController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			21vb4VVjsSLlrh269yU1LKQmoJs=
-			</data>
-			<key>hash2</key>
-			<data>
-			jZ0pHu/cN3LfRmO5GnCNzNLww6h+Xy9FuBgK9CvKtck=
-			</data>
-		</dict>
 		<key>Headers/MaxIssues.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QOP2qXV157GTIApYd4OaD8fo9Ss=
+			FCVQ8OVrekUUKX0JHuogphERPgA=
 			</data>
 			<key>hash2</key>
 			<data>
-			tKlBEfjrFvL6oSulkz4BA7PBPeofV0T3rm1BKzNUDQY=
+			V/V5WsJwRu3G6sThxDwC4SMrI5fChLhofo1yHP3F4q8=
 			</data>
 		</dict>
 		<key>MLIssuesImages.bundle/btn_arrow_nomal.png</key>
@@ -1057,11 +1042,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VYhq1yRcOcYzxWZpJMIgcE5gJIM=
+			bMBUlJVHJL3mo8ghZbJASgQulGo=
 			</data>
 			<key>hash2</key>
 			<data>
-			bXsNhMMUvceEnICHb2rUkYeNoN6lDB3Y1a+31gZewac=
+			OgryqYQTKB8YwBdXlwBF6D9nCLm4+jI4IbcYwVcgiAc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

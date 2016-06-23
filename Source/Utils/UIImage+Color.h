@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 #import <Accelerate/Accelerate.h>
 
-void hc_load_UIImage_HCColor();
+void maxissues_load_UIImage_HCColor();
 
 @interface UIImage (HCColor)
 

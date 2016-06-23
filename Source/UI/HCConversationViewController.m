@@ -722,7 +722,6 @@ SKStoreProductViewControllerDelegate
     if (faqId) {
         HCISFaqItemViewController *itemvc = [[HCISFaqItemViewController alloc] init];
         itemvc.faqItemId = faqId;
-        itemvc.showContactUs = NO;
         [self.navigationController pushViewController:itemvc animated:YES];
     }
 }

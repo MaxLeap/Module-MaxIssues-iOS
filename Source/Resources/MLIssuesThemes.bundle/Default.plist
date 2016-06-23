@@ -8,22 +8,14 @@
 	<dict>
 		<key>Title font name</key>
 		<string>HelveticaNeue</string>
+		<key>Status Bar Style</key>
+		<integer>1</integer>
 		<key>Title font size</key>
 		<string>16</string>
 		<key>Title color</key>
 		<string>FFFFFF</string>
-		<key>Title shadow color (iOS 6)</key>
-		<string></string>
-		<key>Title shadow offset (iOS 6)</key>
-		<string></string>
 		<key>Background color</key>
 		<string>64A7EB</string>
-		<key>Background image (iOS 6)</key>
-		<string></string>
-		<key>Background image landscape (iOS 6)</key>
-		<string></string>
-		<key>Bar shadow image name (iOS 6)</key>
-		<string></string>
 		<key>Bar button font name</key>
 		<string>HelveticaNeue-Light</string>
 		<key>Bar button font size</key>
@@ -33,16 +25,6 @@
 		<key>Contact us button image</key>
 		<string></string>
 		<key>Contact us button image highlighted</key>
-		<string></string>
-	</dict>
-	<key>FAQ section list view</key>
-	<dict>
-		<key>Title image</key>
-		<string></string>
-	</dict>
-	<key>FAQ item list view</key>
-	<dict>
-		<key>Title image</key>
 		<string></string>
 	</dict>
 	<key>FAQ item content view</key>

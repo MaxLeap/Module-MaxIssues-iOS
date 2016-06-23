@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//#error Please replace the appId and clientKey with your app's.
     [MaxLeap setApplicationId:MAXLEAP_APPID clientKey:MAXLEAP_APPID site:MLSiteCN];
     return YES;
 }

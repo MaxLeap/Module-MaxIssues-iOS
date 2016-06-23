@@ -8,7 +8,6 @@
 #import "HCIssueClient.h"
 #import "HCLocalizable.h"
 #import <MaxLeap/MaxLeap.h>
-#import "HCNavigationController.h"
 #import "HCConversationViewController.h"
 
 #define MESSAGE_REFRESH_INTERVAL 3
@@ -178,7 +177,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == alertView.firstOtherButtonIndex) {
-        HCNavigationController *nav = [[HCNavigationController alloc] initWithRootViewController:[HCConversationViewController new]];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[HCConversationViewController new]];
         [[self topMostViewController] presentViewController:nav animated:YES completion:nil];
     }
 }

@@ -5,7 +5,7 @@
 
 #import "UIImage+Color.h"
 
-void hc_load_UIImage_HCColor() {};
+void maxissues_load_UIImage_HCColor() {};
 
 @implementation UIImage (HCColor)
 

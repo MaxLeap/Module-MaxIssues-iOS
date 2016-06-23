@@ -53,7 +53,6 @@
 		9D34DE191CEDA7F600D23025 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34DDF81CEDA7F600D23025 /* UIImage+Color.m */; };
 		9D34DE1F1CEDA9EF00D23025 /* HCiTunesSearchAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34DE1C1CEDA9EF00D23025 /* HCiTunesSearchAPIService.m */; };
 		9D34DE231CEDAC5500D23025 /* HCISFaqItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34DE221CEDAC5500D23025 /* HCISFaqItemViewController.m */; };
-		9D34DE261CEDB12700D23025 /* HCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D34DE241CEDB12700D23025 /* HCNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,8 +148,6 @@
 		9D34DE1C1CEDA9EF00D23025 /* HCiTunesSearchAPIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCiTunesSearchAPIService.m; sourceTree = "<group>"; };
 		9D34DE211CEDAC5500D23025 /* HCISFaqItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCISFaqItemViewController.h; sourceTree = "<group>"; };
 		9D34DE221CEDAC5500D23025 /* HCISFaqItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCISFaqItemViewController.m; sourceTree = "<group>"; };
-		9D34DE241CEDB12700D23025 /* HCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNavigationController.m; sourceTree = "<group>"; };
-		9D34DE251CEDB12700D23025 /* HCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNavigationController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,8 +276,6 @@
 		9D34DDBD1CEDA7F600D23025 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9D34DE241CEDB12700D23025 /* HCNavigationController.m */,
-				9D34DE251CEDB12700D23025 /* HCNavigationController.h */,
 				9D34DE211CEDAC5500D23025 /* HCISFaqItemViewController.h */,
 				9D34DE221CEDAC5500D23025 /* HCISFaqItemViewController.m */,
 				9D34DDBE1CEDA7F600D23025 /* HCBaseViewController.h */,
@@ -490,7 +485,6 @@
 				9D34DE141CEDA7F600D23025 /* HCRightImageCell.m in Sources */,
 				9D34DE181CEDA7F600D23025 /* MLIssuesImageHelper.m in Sources */,
 				9D34DE161CEDA7F600D23025 /* HCTextCell.m in Sources */,
-				9D34DE261CEDB12700D23025 /* HCNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

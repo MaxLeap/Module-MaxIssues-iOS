@@ -13,9 +13,6 @@
 #define DEFAULT_IMAGE_BUNDLE @"MLIssuesImages.bundle"
 
 @interface HCNavigationBarAttributes ()
-@property (nonatomic, strong) NSString *shadowImageName;                // Bar shadow image name (iOS 6)
-@property (nonatomic, strong) NSString *backgroundImageName;            // Background image (iOS 6)
-@property (nonatomic, strong) NSString *backgroundImageLangscapeName;   // Background image landscape (iOS 6)
 
 @property (nonatomic, strong) NSString *contactUsImageName;             // Contact us button image
 @property (nonatomic, strong) NSString *contactUsImageHighlightedName;  // Contact us button image highlighted
@@ -25,9 +22,9 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.barStyle = UIBarStyleBlack;
         self.titleFont = [UIFont fontWithName:@"HelveticaNeue" size:16];
         self.titleColor = [UIColor whiteColor];
-        self.titleShadowOffset = CGSizeZero;
         self.backgroundColor = [UIColor colorWithRed:100/255.f green:167/255.f blue:235/255.f alpha:1.00f];
         self.buttonTextColor = [UIColor whiteColor];
         self.buttonTextFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
@@ -37,6 +34,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [self init]) {
+        self.barStyle = [dictionary[@"Status Bar Style"] integerValue];
         NSString *fontName = dictionary[@"Title font name"];
         if (fontName) {
             CGFloat fontSize = [dictionary[@"Title font size"] doubleValue];
@@ -48,11 +46,7 @@
             }
         }
         self.titleColor = UIColorFromHEXString(dictionary[@"Title color"])?:self.titleColor;
-        self.titleShadowColor = UIColorFromHEXString(dictionary[@"Title shadow color (iOS 6)"])?:self.titleShadowColor;
-        self.titleShadowOffset = CGSizeFromString(dictionary[@"Title shadow offset (iOS 6)"]);
         self.backgroundColor = UIColorFromHEXString(dictionary[@"Background color"])?:self.backgroundColor;
-        self.backgroundImageName = dictionary[@"Background image (iOS 6)"];
-        self.backgroundImageLangscapeName = dictionary[@"Background image landscape (iOS 6)"];
         self.buttonTextColor = UIColorFromHEXString(dictionary[@"Bar button text color"])?:self.buttonTextColor;
         
         NSString *btnTextFontName = dictionary[@"Bar button font name"];
@@ -70,18 +64,6 @@
         self.contactUsImageHighlightedName = dictionary[@"Contact us button image highlighted"];
     }
     return self;
-}
-
-- (UIImage *)backgroundImage {
-    return HCImageNamed(self.backgroundImageName);
-}
-
-- (UIImage *)backgroundImageLangscape {
-    return HCImageNamed(self.backgroundImageLangscapeName);
-}
-
-- (UIImage *)shadowImage {
-    return HCImageNamed(self.shadowImageName)?:[UIImage new];
 }
 
 - (UIImage *)contactUsImage {
@@ -179,7 +161,33 @@
 
 #pragma mark -
 
+@interface MLISFaqItemContentViewAttributes ()
+@property (nonatomic, strong) NSString *titleImageName;
+@end
+
+@implementation MLISFaqItemContentViewAttributes
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    if (self = [self init]) {
+        self.titleImageName = dictionary[@"Title image"];
+    }
+    return self;
+}
+
+- (UIImage *)titleImage {
+    return HCImageNamed(self.titleImageName);
+}
+
+@end
+
+#pragma mark -
+
 @implementation HCIssuesTheme
+
++ (void)load {
+    // load current theme
+    [HCIssuesTheme currentTheme];
+}
 
 + (instancetype)currentTheme {
     static HCIssuesTheme *_currentTheme = nil;
@@ -248,6 +256,7 @@
     _navigationBarAttributes = [[HCNavigationBarAttributes alloc] initWithDictionary:config[@"Navigation Bar"]];
     _conversationCreateViewAttr = [[HCNewConversationViewAttributes alloc] initWithDictionary:config[@"New conversation view"]];
     _conversationViewAttr = [[HCConversationViewAttributes alloc] initWithDictionary:config[@"Conversation view"]];
+    _itemContentAttr = [[MLISFaqItemContentViewAttributes alloc] initWithDictionary:config[@"FAQ item content view"]];
 }
 
 @end

@@ -40,31 +40,12 @@ UINavigationControllerDelegate>
                                             }
                                  forState:UIControlStateNormal];
     
-    BOOL ios7OrLater = [[UIDevice currentDevice].systemVersion compare:@"7.0"] != NSOrderedAscending;
-    if (ios7OrLater) {
         self.navigationBar.barTintColor = navAttr.backgroundColor;
         self.navigationBar.translucent = NO;
-    } else {
-        if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-            UIImage *bgImg = navAttr.backgroundImage?:[UIImage hc_imageWithColor:navAttr.backgroundColor];
-            [self.navigationBar setBackgroundImage:bgImg forBarMetrics:UIBarMetricsDefault];
-        } else {
-            UIImage *bgImg = (navAttr.backgroundImageLangscape?:navAttr.backgroundImage)?:[UIImage hc_imageWithColor:navAttr.backgroundColor];
-            [self.navigationBar setBackgroundImage:bgImg forBarMetrics:UIBarMetricsDefault];
-        }
-        [self.navigationBar setShadowImage:navAttr.shadowImage];
-    }
     
-    NSMutableDictionary *dict = [@{NSForegroundColorAttributeName:navAttr.titleColor,
-                                   NSFontAttributeName:navAttr.titleFont
-                                   } mutableCopy];
-    if ( ! ios7OrLater) {
-        NSShadow *shadow = [[NSShadow alloc] init];
-        shadow.shadowOffset = navAttr.titleShadowOffset;
-        shadow.shadowColor = navAttr.titleShadowColor;
-        dict[NSShadowAttributeName] = shadow;
-    }
-    self.navigationBar.titleTextAttributes = dict;
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:navAttr.titleColor,
+                                               NSFontAttributeName:navAttr.titleFont
+                                               };
     
     self.delegate = self;
 }
