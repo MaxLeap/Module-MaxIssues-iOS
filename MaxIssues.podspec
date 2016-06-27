@@ -41,4 +41,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'MaxLeap/Core', '~> 2.1.0'
 
+  s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MLLogTag=@\"${TARGET_NAME}\"'}
+
 end
