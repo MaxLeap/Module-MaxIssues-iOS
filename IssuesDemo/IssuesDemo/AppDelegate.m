@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <MaxLeap/MaxLeap.h>
 
+#warning Please replace the appId and clientKey with your own.
 #define MAXLEAP_APPID           @"your_app_id"
 #define MAXLEAP_CLIENTKEY       @"your_client_key"
 
@@ -21,7 +22,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//#error Please replace the appId and clientKey with your app's.
     [MaxLeap setApplicationId:MAXLEAP_APPID clientKey:MAXLEAP_APPID site:MLSiteCN];
     return YES;
 }
