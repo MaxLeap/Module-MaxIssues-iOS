@@ -9,6 +9,8 @@
 #import "MLLogging.h"
 #import "HEXRGBColor.h"
 #import "MLAssert.h"
+#import "MLDevice.h"
+#import "UIImage+HCIssueColor.h"
 
 #define DEFAULT_IMAGE_BUNDLE @"MLIssuesImages.bundle"
 
@@ -19,6 +21,10 @@
 @end
 
 @implementation HCNavigationBarAttributes
+
++ (void)load {
+    maxleap_load_UIImage_HCIssueColor();
+}
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -111,7 +117,7 @@
         self.messageTextColorLeft = [UIColor colorWithRed:74/255.f green:74/255.f blue:74/255.f alpha:1];
         self.messageTextColorRight = [UIColor whiteColor];
         
-        BOOL ios7OrLater = [[UIDevice currentDevice].systemVersion compare:@"7.0"] != NSOrderedAscending;
+        BOOL ios7OrLater = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
         if (ios7OrLater) {
             self.dateTextFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:9];
         } else {

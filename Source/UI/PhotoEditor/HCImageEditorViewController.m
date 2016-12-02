@@ -8,7 +8,8 @@
 #import "MLIssuesImageHelper.h"
 #import "HCStrokeSelector.h"
 #import "HCColorSelector.h"
-#import "UIImage+Color.h"
+#import "UIImage+HCIssueColor.h"
+#import "MLDevice.h"
 
 #define kStrokeIndexKey @"com.las.helpcenter.photoeditor.strokeselectedIndex"
 
@@ -73,7 +74,7 @@
     
     CGRect frame = CGRectMake(20, 15, self.view.frame.size.width -40, self.toolView.frame.origin.y - 40);
     
-    BOOL ios7OrLater = [[UIDevice currentDevice].systemVersion compare:@"7.0"] != NSOrderedAscending;
+    BOOL ios7OrLater = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
     if (ios7OrLater) {
         if ([self respondsToSelector:@selector(topLayoutGuide)]) {
             frame.origin.y += [[self topLayoutGuide] length];

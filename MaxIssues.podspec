@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MaxIssues"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "MaxLeap Services provides all-in-one cloud services for developers."
 
 
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'UIKit'
 
-  s.dependency 'MaxLeap/Core', '~> 2.1.0'
+  s.dependency 'MaxLeap/Core', '~> 2.1'
 
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MLLogTag=@\"${TARGET_NAME}\"'}
 

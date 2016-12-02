@@ -20,6 +20,7 @@
 #import "HCLocalizable.h"
 #import "HCIssuesTheme.h"
 #import <MaxLeap/MLFile.h>
+#import "MLDevice.h"
 
 @interface HCConversationViewController ()
 <
@@ -46,6 +47,7 @@ SKStoreProductViewControllerDelegate
 
 @property (nonatomic, strong) HCMessage *messageToRetry;
 
+@property (nonatomic) BOOL isCreatingIssue;
 @property (nonatomic) BOOL isViewDidAppear;
 
 @property (nonatomic) CGRect keyboardEndFrame;
@@ -154,7 +156,7 @@ SKStoreProductViewControllerDelegate
 
 - (void)refreshKeyboardInfoFromNotification:(NSNotification *)notification {
     CGRect endFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    BOOL _is7_0OrEarlier = [[UIDevice currentDevice].systemVersion compare:@"8.0"] == NSOrderedAscending;
+    BOOL _is7_0OrEarlier = SYSTEM_VERSION_LESS_THAN(@"8.0");
     if (_is7_0OrEarlier) { // < 8.0
         CGSize windowSize = self.view.window.frame.size;
         BOOL isLandscape = UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
@@ -183,7 +185,7 @@ SKStoreProductViewControllerDelegate
 - (CGRect)frameOnScreenOfView:(UIView *)view {
     CGRect issueViewFrame = view.frame;
     CGRect endFrame = [view.window convertRect:issueViewFrame fromView:self.view];
-    BOOL _is7_0OrEarlier = [[UIDevice currentDevice].systemVersion compare:@"8.0"] == NSOrderedAscending;
+    BOOL _is7_0OrEarlier = SYSTEM_VERSION_LESS_THAN(@"8.0");
     if (_is7_0OrEarlier) {
         CGSize windowSize = view.window.frame.size;
         BOOL isLandscape = UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
@@ -329,6 +331,11 @@ SKStoreProductViewControllerDelegate
     __weak typeof(self) wself = self;
     [self.issueView setDoneAction:^(NSString *title, NSString *name, NSString *email, UIImage *image) {
         
+        if (wself.isCreatingIssue) {
+            return ;
+        }
+        wself.isCreatingIssue = YES;
+        
         [wself.issueView endEditing:NO];
         [wself showMessage:HCLocalizedString(@"Sending your message...", nil) onlyText:NO withDuration:-1];
         
@@ -361,12 +368,14 @@ SKStoreProductViewControllerDelegate
                     } else {
                         [wself stopActivity];
                     }
+                    wself.isCreatingIssue = NO;
                 }];
             } else {
 //                [wself stopActivity];
 //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:HCLocalizedString(@"Message send failure.", nil) message:HCLocalizedString(@"Please check your network connection and try again.", nil) delegate:nil cancelButtonTitle:HCLocalizedString(@"OK", nil) otherButtonTitles:nil, nil];
 //                [alertView show];
                 [wself showError:HCLocalizedString(@"Message send failure!\nPlease check your network connection and try again.", nil)];
+                wself.isCreatingIssue = NO;
             }
         }];
     }];
@@ -722,6 +731,7 @@ SKStoreProductViewControllerDelegate
     if (faqId) {
         HCISFaqItemViewController *itemvc = [[HCISFaqItemViewController alloc] init];
         itemvc.faqItemId = faqId;
+        itemvc.showContactUs = NO;
         [self.navigationController pushViewController:itemvc animated:YES];
     }
 }

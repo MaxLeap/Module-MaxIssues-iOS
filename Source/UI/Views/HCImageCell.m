@@ -4,6 +4,7 @@
 //
 
 #import "HCImageCell.h"
+#import "MLDevice.h"
 
 @implementation HCImageCell
 
@@ -22,7 +23,7 @@
         [self.contentView addSubview:timeLable];
         self.timeLable = timeLable;
         
-        BOOL ios7OrLater = [[UIDevice currentDevice].systemVersion compare:@"7.0"] != NSOrderedAscending;
+        BOOL ios7OrLater = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0");
         if (ios7OrLater) {
             timeLable.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:9];
         } else {

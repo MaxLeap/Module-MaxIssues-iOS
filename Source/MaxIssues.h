@@ -13,6 +13,6 @@ FOUNDATION_EXPORT double MaxIssuesVersionNumber;
 FOUNDATION_EXPORT const unsigned char MaxIssuesVersionString[];
 
 
-#import "HCBaseViewController.h"
-#import "HCConversationViewController.h"
+#import <MaxIssues/HCBaseViewController.h>
+#import <MaxIssues/HCConversationViewController.h>
 

@@ -6,7 +6,7 @@
 #import "HCImagePickerController.h"
 #import "MLIssuesImageHelper.h"
 #import "HCImageEditorViewController.h"
-#import "UIImage+Color.h"
+#import "UIImage+HCIssueColor.h"
 #import "HCIssuesTheme.h"
 #import "MLLogging.h"
 

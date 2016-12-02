@@ -6,7 +6,7 @@
 #import "HCBaseViewController.h"
 #import "HCConversationViewController.h"
 #import "HCDejalStatusView.h"
-#import "UIImage+Color.h"
+#import "UIImage+HCIssueColor.h"
 #import "HCIssueManager.h"
 #import "HCIssuesTheme.h"
 #import "HCLocalizable.h"
@@ -28,6 +28,13 @@
 @end
 
 @implementation HCBaseViewController
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self= [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.showContactUs = YES;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

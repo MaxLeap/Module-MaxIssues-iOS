@@ -262,8 +262,17 @@ UITextViewDelegate>
     NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
     NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:checkString];
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:emailRegex options:kNilOptions error:&error];
+    if (error) {
+        MLLogError(@"failed to create regular expression, error: %@", error);
+    }
+    NSRange f = [regex rangeOfFirstMatchInString:checkString options:kNilOptions range:NSMakeRange(0, checkString.length)];
+    return f.location != NSNotFound;
+    
+// NSPredicate Leaks: http://www.openradar.me/23025446
+//    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+//    return [emailTest evaluateWithObject:checkString];
 }
 
 - (BOOL)tryToTriggerSendAction {

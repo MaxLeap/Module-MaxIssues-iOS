@@ -7,6 +7,8 @@
 
 @interface HCBaseViewController : UIViewController
 
+@property (nonatomic) BOOL showContactUs; // default is YES
+
 - (void)startActivity;
 - (void)stopActivity;
 

@@ -33,7 +33,7 @@ static int syncQueueID = 1000;
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.syncQueue = dispatch_queue_create("as.leap.helpcenter.issue.db.queue", DISPATCH_QUEUE_SERIAL);
+        self.syncQueue = dispatch_queue_create("com.maxleap.helpcenter.issue.db.queue", DISPATCH_QUEUE_SERIAL);
         dispatch_queue_set_specific(self.syncQueue, &syncQueueID, &syncQueueID, NULL);
         
         [self loadDB];
