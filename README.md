@@ -15,8 +15,22 @@
 
 1、HCConversationViewController：Issues 主界面，使用方法：
 
+- 使用 navigation controller push
+    
+    ```objc
     HCConversationViewController *issuesViewController = [[HCConversationViewController alloc] init];
     [self.navigationController pushViewController:faqViewController animated:YES];
-  
+    ```
+
+
+- 展示为 Modal View：
+
+    ```objc
+    HCConversationViewController *issuesViewController = [[HCConversationViewController alloc] init];
+    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:issuesViewController];
+    [self presentViewController:navCtrl animated:YES completion:nil];
+    ```
+
+
 **注意：必须使用 NavigationController, 因为有一部分按钮放在导航栏上**
 
