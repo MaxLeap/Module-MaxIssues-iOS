@@ -66,6 +66,7 @@ SKStoreProductViewControllerDelegate
     
     self.view.clipsToBounds = YES;
     self.navigationItem.rightBarButtonItem = nil;
+    self.hidesBottomBarWhenPushed = YES;
     
     // setup message tableview
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
